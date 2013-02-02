@@ -1,5 +1,6 @@
 # For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink: pretty
+exclude: ["CNAME", "component.json", "Makefile", "node_modules", "package.json", "README.md", "assets/components", "assets/js", "assets/stylus"]
 
 pygments: true
 
