@@ -1,0 +1,6 @@
+---
+layout: nil
+---
+User-Agent: *
+Allow: /
+Sitemap: {{ site.base_path }}/sitemap.xml

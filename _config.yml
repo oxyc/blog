@@ -1,0 +1,17 @@
+# For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
+permalink: pretty
+
+pygments: true
+
+base_path: http://blog.oxy.fi
+
+title: Blog name
+author:
+  name: Oskar Schöldström
+  email: public@oxy.fi
+  googleplus: https://plus.google.com/114201888556629445485
+  twitter: scholdstrom
+  github: oxyc
+
+site:
+  google_analytics: UA-XXX

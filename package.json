@@ -1,0 +1,13 @@
+{
+  "name": "blog.oxy.fi",
+  "author": { "name": "Oskar Schöldström", "email": "public@oxy.fi" },
+  "version": "0.0.1",
+  "homepage": "http://blog.oxy.fi",
+  "devDependencies": {
+    "stylus": "~0.32.0",
+    "jshint": "~0.9.1",
+    "browserify": "~1.17.3",
+    "bower": "~0.7.0",
+    "uglify-js": "~2.2.4"
+  }
+}
