@@ -4,7 +4,7 @@ exclude: ["CNAME", "component.json", "Makefile", "node_modules", "package.json",
 
 pygments: true
 
-base_path: http://blog.oxy.fi
+base_path: http://oxy.fi
 
 title: Blog name
 author:
