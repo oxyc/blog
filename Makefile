@@ -1,19 +1,36 @@
 BIN := ./node_modules/.bin
 
-# 3rd party JavaScript components
-COMPONENTS ?= assets/components/es5-shim/es5-shim.min.js assets/components/rsvp/rsvp.min.js assets/components/basket.js/dist/basket.min.js
-# 3rd party CSS components
-CSS_LIBS ?= assets/components/normalize-css/normalize.css
+# Bin files
+STYLUS ?= $(BIN)/stylus
+BROWSERIFY ?= $(BIN)/browserify
+JSHINT ?= $(BIN)/jshint
+JEKYLL ?= jekyll
+BOWER ?= bower
+GEM ?= gem
+NPM ?= npm
 
-JS ?= assets/js/main.js
-CSS_DIST ?= assets/stylesheets
-JS_DIST ?= assets/scripts
-STYLUS_DIR ?= assets/stylus
-STYLUS_FILE ?= assets/stylus/styles.styl
+# Directories
+ASSETS_DIR ?= assets
+COMPONENTS_DIR ?= $(ASSETS_DIR)/components
+DIST_DIR ?= $(ASSETS_DIR)/dist
+STYLUS_DIR ?= $(ASSETS_DIR)/stylus
+JS_DIR ?= $(ASSETS_DIR)/js
+
+# 3rd party components
+JS_COMPONENTS ?= $(COMPONENTS_DIR)/es5-shim/es5-shim.min.js \
+								 $(COMPONENTS_DIR)/rsvp/rsvp.min.js \
+								 $(COMPONENTS_DIR)/basket.js/dist/basket.min.js
+CSS_COMPONENTS ?= $(COMPONENTS_DIR)/normalize-css/normalize.css
+
+# Files to be compiled
+JS_FILES ?= $(JS_DIR)/main.js
+STYLUS_FILES ?= $(STYLUS_DIR)/styles.styl
+COMPONENTS_DIST ?= $(DIST_DIR)/components.min.js
+JS_DIST ?= $(DIST_DIR)/script.js
 
 # Filename of the new article
-FILE = $(shell date "+./_posts/%Y-%m-%d-$(TOPIC).md" | sed -e y/\ /-/)
 TOPIC ?= new article
+FILE = $(shell date "+./_posts/%Y-%m-%d-$(TOPIC).md" | sed -e y/\ /-/)
 
 all: build
 
@@ -29,10 +46,10 @@ new:
 # Building ------------------------------------------------
 
 build: clean css js
-	@jekyll $(ARGS)
+	@$(JEKYLL) $(ARGS)
 
 serve: clean watch js
-	@jekyll --server --auto
+	@$(JEKYLL) --server --auto
 
 css: stylus
 
@@ -40,40 +57,40 @@ js: browserify concat
 
 # STYLESHEETS ---------------------------------------------
 
-stylus:
-	@$(BIN)/stylus $(STYLUS_FILE) --out $(CSS_DIST) $(ARGS)
+stylus: $(STYLUS_FILES)
+	@$(STYLUS) $^ --out $(DIST_DIR) $(ARGS)
 
-convert: $(CSS_LIBS:.css=.styl)
+# Convert css into stylus syntax
+convert: $(CSS_COMPONENTS:.css=.styl)
 
 %.styl: %.css
-	@$(BIN)/stylus --css $< $(STYLUS_DIR)/$(notdir $@)
+	@$(STYLUS) --css $< $(STYLUS_DIR)/$(notdir $@)
 
 watch:
 	@make ARGS=--watch stylus &
 
 # JAVASCRIPT ----------------------------------------------
 
-browserify: $(JS)
-	$(BIN)/browserify $^ -o $(JS_DIST)/script.js
+browserify: $(JS_FILES)
+	$(BROWSERIFY) $^ -o $(JS_DIST)
 
-concat: $(COMPONENTS)
-	@cat $^ > $(JS_DIST)/components.min.js
+concat: $(JS_COMPONENTS)
+	@cat $^ > $(COMPONENTS_DIST)
 
-jshint: .bowerrc .jshintrc *.json assets/js
-	@$(BIN)/jshint $(ARGS) $^
+jshint: .bowerrc .jshintrc *.json $(JS_DIR)
+	@$(JSHINT) $(ARGS) $^
 
 # Development ---------------------------------------------
 
 # https://github.com/mojombo/jekyll/issues/762
 dev-install:
-	@gem install rdoc jekyll
-	@npm install --dev
-	@bower install
+	@$(GEM) install rdoc jekyll
+	@$(NPM) install --dev
+	@$(BOWER) install
 	@make convert
 
 clean:
 	@rm -rf _site/*
-	@rm -rf assets/stylesheets/*
-	@rm -rf assets/scripts/*
+	@rm -rf $(DIST_DIR)/*
 
 .PHONY: build serve watch dev-install clean
