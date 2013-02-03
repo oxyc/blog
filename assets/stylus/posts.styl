@@ -15,8 +15,27 @@ article
 
   .tags
     font-size: $small-size
-
-  .tags
     display: inline-block
     &:before
       content: '\BB'
+    a
+      color: $black
+      &:hover
+        color: $gray
+
+  .pagination
+    clean-list()
+    text-align: center
+    li
+      display: inline-block
+    a
+      font-family: $serif
+      font-style: italic
+      color: $gray
+
+      &:hover
+        color: $black
+    .previous
+      margin-right: .25em
+    .next
+      margin-left: .25em

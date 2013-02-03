@@ -264,12 +264,39 @@ article h1 {
 }
 article .tags {
   font-size: 12px;
-}
-article .tags {
   display: inline-block;
 }
 article .tags:before {
   content: '\BB';
+}
+article .tags a {
+  color: #434343;
+}
+article .tags a:hover {
+  color: #b3b3b3;
+}
+article .pagination {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+article .pagination li {
+  display: inline-block;
+}
+article .pagination a {
+  font-family: Droid Serif, Georgia, serif;
+  font-style: italic;
+  color: #b3b3b3;
+}
+article .pagination a:hover {
+  color: #434343;
+}
+article .pagination .previous {
+  margin-right: 0.25em;
+}
+article .pagination .next {
+  margin-left: 0.25em;
 }
 .highlight .c /* Comment */ {
   color: #998;
@@ -540,12 +567,10 @@ a:hover {
   color: #000;
 }
 a.gray,
-.tags a,
 #footer a {
   color: #434343;
 }
 a.gray:hover,
-.tags a:hover,
 #footer a:hover {
   color: #b3b3b3;
 }
