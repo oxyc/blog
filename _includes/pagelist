@@ -1,5 +1,5 @@
 {% for node in pagelist %}
   {% if node.title != null %}
-    <li><a href="{{ site.base_path }}{{ node.url }}">{{ node.title }}</a></li>
+    <li><a href="{{ node.url }}"><time datetime="{{ node.date | date_to_xmlschema }}">{{ node.date | date_to_string }}</time><span>{{ node.title }}</span></a></li>
   {% endif %}
 {% endfor %}
