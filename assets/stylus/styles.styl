@@ -1,4 +1,78 @@
 @import "normalize"
+@import "variables"
+@import "generic"
+@import "layout"
+@import "posts"
+@import "syntax"
 
 body
-  font: 16px Georgia, sans-serif;
+  font: $font-size $sans-serif
+  line-height: 1.667
+  color: $black
+  background: $white
+  @media screen and (min-width: 560px)
+    font-size: $desktop-size
+
+h1
+  margin-top: 0
+  font-size: 2.5em
+  font-weight: 700
+
+h2, h3
+  margin-bottom: 0.5em
+
+h1, h2, h3
+  font-family: $serif
+
+a
+  color: $blue
+  &:visited
+    color: $purple
+  &:hover
+    color: black
+
+a.gray
+  color: $black
+  &:hover
+    color: $gray
+
+blockquote
+  font-style: italic
+  font-family: $serif
+
+blockquote, .highlight
+  border-left: solid 5px $gray
+  background: $light-gray
+  margin-left: 0
+  padding: 0.1em 1em
+
+code, kbd, pre, samp
+  font-family: $monospace
+
+.tags
+  inline-list()
+  li
+    separate(', ')
+  a
+    @extends a.gray
+
+time
+  color: $gray
+  font-size: $small-size
+  text-transform: uppercase
+
+.preamble
+  font-size: 112.5%
+
+#footer a
+  @extends a.gray
+
+::-moz-selection
+  background: $red
+  color: white
+  text-shadow: none
+
+::selection
+  background: $red
+  color: white
+  text-shadow: none

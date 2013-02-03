@@ -1,12 +1,26 @@
 ---
 layout: page
-title: Test
+title: Oskar Schöldström's blog
 ---
+{{ page.title }}
+================
 
-Testing
+A web development blog. Frequent topics will include JavaScript, shell scripting, productivity tools
+and archlinux.
+
+### Recent articles
 
 <ul class="posts">
 {% for post in site.posts %}
-  <li><span>{{ post.date | date_to_string }}</span><a href="{{ post.url }}">{{ post.title }}</a></li>
+  <li><a href="{{ post.url }}"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time><span>{{ post.title }}</span></a></li>
 {% endfor %}
 </ul>
+
+### Categories
+
+{% unless site.tags == empty %}
+  <ul class="tags">
+  {% assign taglist = site.tags %}
+  {% include taglist %}
+  </ul>
+{% endunless %}

@@ -6,7 +6,8 @@ pygments: true
 
 base_path: http://oxy.fi
 
-title: Blog name
+title: Oxy.fi
+tagline: A web development blog
 author:
   name: Oskar Schöldström
   email: public@oxy.fi
@@ -16,3 +17,4 @@ author:
 
 site:
   google_analytics: UA-XXX
+

@@ -1,0 +1,5 @@
+{% for node in pagelist %}
+  {% if node.title != null %}
+    <li><a href="{{ site.base_path }}{{ node.url }}">{{ node.title }}</a></li>
+  {% endif %}
+{% endfor %}

@@ -1,0 +1,56 @@
+.page-width
+  max-width: $page-width
+  margin: 0 auto
+
+#wrapper
+  margin: 0 1em
+
+#header
+  position: relative
+
+@media screen and (min-width: 900px)
+  #logo
+    position: absolute
+    left: -5em
+  #wrapper
+    margin-top: 1.5em
+
+#logo
+  line-height: 4
+  &:after
+    content: ' \BB'
+    font-family: $serif
+    color: $red
+
+  a
+    text-decoration: none
+    color: $black
+    font-style: italic
+    font-family: Droid Serif
+
+#footer
+  background: $light-gray
+  font-family: Droid Serif, sans-serif
+  text-align: center
+  margin-top: 2em
+
+  ul
+    clean-list()
+  nav
+    margin-bottom: .5em
+    li
+      display: inline-block
+      separate(', ')
+    a
+      font-size: $small-size
+      font-style: italic
+
+  .vcard
+    padding: 1em
+
+    p
+      line-height: 1
+      margin: 0
+
+    small
+      font-size: 65%

@@ -1,0 +1,7 @@
+{% for tag in taglist %}
+  {% if tag[0] == null %}
+    <li><a href="{{ site.base_path }}/categories/#{{ tag }}">{{ tag }}</a></li>
+  {% else %}
+    <li><a href="{{ site.base_path }}/categories/#{{ tag[0] }}">{{ tag[0] }}</a></li>
+  {% endif %}
+{% endfor %}

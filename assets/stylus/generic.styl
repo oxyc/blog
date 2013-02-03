@@ -1,0 +1,26 @@
+separate(separator)
+  &:after
+    content: separator
+  &:last-child:after
+    content: ''
+
+inline-list()
+  clean-list()
+  li
+    display: inline-block
+
+clean-list()
+  list-style-type: none
+  margin: 0
+  padding: 0
+
+.hidden
+  display: none !important
+  visibility: hidden
+
+.cf
+  &:before, &:after
+    content: " "
+    display: table
+  &:after
+    clear: both
