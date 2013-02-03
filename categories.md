@@ -12,7 +12,7 @@ title: Categories
 
 {% for tag in site.tags %}
   <h2 id="{{ tag[0] }}">{{ tag[0] }}</h2>
-  <ul>
+  <ul class="posts">
   {% assign pagelist = tag[1] %}
   {% include pagelist %}
   </ul>

@@ -11,9 +11,8 @@ and archlinux.
 ### Recent articles
 
 <ul class="posts">
-{% for post in site.posts %}
-  <li><a href="{{ post.url }}"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time><span>{{ post.title }}</span></a></li>
-{% endfor %}
+{% assign pagelist = site.posts %}
+{% include pagelist %}
 </ul>
 
 ### Categories

@@ -22,5 +22,10 @@ layout: default
       <li class="next"><a href="{{ page.next.url }}" title="{{ page.next.title }}"> New &rarr;</a></li>
       {% endif %}
     </ul>
+    <h3>Related articles</h3>
+    <ul class="related-posts posts">
+      {% assign pagelist = site.related_posts %}
+      {% include pagelist %}
+    </ul>
   </footer>
 </article>
