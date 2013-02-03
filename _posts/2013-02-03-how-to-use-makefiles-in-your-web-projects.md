@@ -3,7 +3,7 @@ title: How to use Makefiles in your web projects
 layout: post
 tags: ['shell', 'makefile', 'build']
 ---
-<p class="preamble">Every projected created has some form of build process, be
+<p class="preamble">Every project created has some form of build process, be
 it a large web application or a small reusable AMD component, it has one.
 There are also a ton of tools that can help you with automating this process,
 one popular tool gaining a lot of traction these days is the awesome <a
