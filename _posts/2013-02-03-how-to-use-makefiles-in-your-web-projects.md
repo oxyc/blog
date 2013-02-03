@@ -37,7 +37,7 @@ commands.
 Making targets flexible
 -----------------------
 
-To increase flexibility, predefined dependencies of a target can be overriden
+To increase flexibility, predefined dependencies of a target can be overridden
 from the command line by listing them after the target name:
 
     $ make min index.js plugins.js
@@ -167,7 +167,7 @@ Alright, that's our makefile.
 
 ### How to use it
 
-Concat and minify index.js and plugin.js into dist/script.min.js (these all do
+Concat and minify index.js and plugins.js into dist/script.min.js (these all do
 the same thing).
 
     $ make
