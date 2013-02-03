@@ -87,6 +87,7 @@ dev-install:
 	@$(GEM) install rdoc jekyll
 	@$(NPM) install --dev
 	@$(BOWER) install
+	@test -e .git/hooks/pre-commit || { cd .git/hooks && ln -s ../../bin/pre-commit . & cd -; }
 	@make convert
 
 clean:
