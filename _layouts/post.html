@@ -3,7 +3,7 @@ layout: default
 ---
 <article>
   <header>
-    <h1>{{ page.title }}</h1>
+    <h1><a href="{{ site.base_path }}{{ page.url }}" rel="bookmark">{{ page.title }}</a></h1>
     <time datetime="{{ page.date | date_to_xmlschema }}" pubdate>{{ page.date | date_to_long_string }}</time>
   {% unless page.tags == empty %}
     <ul class="tags">
