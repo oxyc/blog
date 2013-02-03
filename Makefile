@@ -29,10 +29,10 @@ new:
 # Building ------------------------------------------------
 
 build: clean css js
-	@jekyll
+	@jekyll $(ARGS)
 
-serve: build
-	@jekyll --server
+serve: clean watch js
+	@jekyll --server --auto
 
 css: stylus
 
