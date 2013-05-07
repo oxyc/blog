@@ -1,0 +1,3 @@
+[submodule "back-to-visuals"]
+	path = back-to-visuals
+	url = git@github.com:oxyc/Back-to-Visuals.git
